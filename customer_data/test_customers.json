@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Kabylet Adilet",
+    "address": "456 Elm St",
+    "phone_number": "555-555-1212",
+    "email": "jane@example.com",
+    "girlfriend": true,
+    "gpa": 3.9,
+    "id": 1
+  },
+  {
+    "name": "Yerbolat Bek",
+    "address": "Akbulak District",
+    "phone_number": "8-705-387-7382",
+    "email": "sbek228@gmail.com",
+    "gpa": 3.8,
+    "girlfriend": null,
+    "id": 2
+  },
+  {
+    "name": "Yerbolat Bek",
+    "address": "Akbulak District",
+    "phone_number": "8-705-387-7382",
+    "email": "sbek228@gmail.com",
+    "gpa": 3.8,
+    "girlfriend": null,
+    "id": 3
+  }
+]
