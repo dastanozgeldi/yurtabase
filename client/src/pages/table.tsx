@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { styles } from "../styles";
 
 function Table() {
   const navigate = useNavigate();
@@ -23,14 +24,40 @@ function Table() {
 
   return (
     <div className="max-w-max my-4 mx-auto p-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between space-x-6">
         <h1 className="text-[2rem] font-bold my-2">{tableId}</h1>
-        <button
-          onClick={() => navigate(-1)}
-          className="font-medium text-blue-500 hover:text-blue-600 focus:text-blue-700 duration-500"
-        >
-          &larr; Go Back
-        </button>
+        <div className="space-x-3">
+          <button
+            onClick={() => navigate(-1)}
+            className="font-medium text-blue-500 hover:text-blue-600 focus:text-blue-700 duration-500"
+          >
+            &larr; Go Back
+          </button>
+          <button
+            className={styles.delete}
+            onClick={async () => {
+              const res = await fetch(
+                `http://localhost:5000/delete-table/${tableId}`,
+                {
+                  method: "DELETE",
+                  mode: "cors",
+                  cache: "no-cache",
+                  credentials: "same-origin",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              if (res.status === 200) {
+                navigate("/");
+              } else {
+                alert("Something went wrong");
+              }
+            }}
+          >
+            🗑️ Delete
+          </button>
+        </div>
       </div>
       <table className="min-w-full divide-y divide-gray-200 border-gray-200 border rounded-lg flex">
         {fields.map((field) => (

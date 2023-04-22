@@ -1,18 +1,18 @@
 from pathlib import Path
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from server.database import Database
 
 app = Flask(__name__)
 CORS(app)
 
-path = Path(__file__).parent / "data"
+BASE_DIR = Path(__file__).parent / "data"
 
 
 @app.get("/")
 def index():
     """Lists all databases"""
-    return [x.name.split(".")[0] for x in path.glob("*.json")]
+    return [x.name.split(".")[0] for x in BASE_DIR.glob("*.json")]
 
 
 @app.get("/get/<table>")
@@ -23,3 +23,19 @@ def get_table(table):
     )
     customers = db.get_all()
     return jsonify(customers)
+
+
+@app.post("/new-table")
+def new_table():
+    data = request.json
+    with open(f'{BASE_DIR / data["name"]}.json', "w") as f:
+        f.write(data["code"])
+
+    return {"message": "success"}
+
+
+@app.delete("/delete-table/<table>")
+def delete_table(table):
+    path = BASE_DIR / f"{table}.json"
+    path.unlink()
+    return {"message": "success"}

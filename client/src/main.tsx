@@ -4,6 +4,7 @@ import Home from "./pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Table from "./pages/table";
+import { NewTable } from "./pages/new";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/tables/:tableId",
     element: <Table />,
+  },
+  {
+    path: "/new",
+    element: <NewTable />,
   },
 ]);
 
