@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
+import yurt from "../assets/yurt.png";
 
 function Home() {
   const [tables, setTables] = useState([]);
@@ -33,6 +34,10 @@ function Home() {
             </Link>
           </div>
         ))}
+        <div className="flex items-center justify-end space-x-2">
+          <img src={yurt} className="w-8 h-8" />
+          <h1 className="font-bold text-xl">Yurtabase</h1>
+        </div>
       </div>
     </div>
   );
