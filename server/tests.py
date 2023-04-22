@@ -1,6 +1,6 @@
 from database import Database
 
-DATABASE_DIR = "customer_data"
+DATABASE_DIR = "data"
 CUSTOMERS_TABLE = "test_customers.json"
 
 # Define the schema for your customers table
@@ -26,10 +26,10 @@ new_customer = {
     "gpa": 3.8,
     "girlfriend": None,
 }
-db.create_customer(new_customer)
+db.create(new_customer)
 
 # Read first customer
-customer = db.read_customer(1)
+customer = db.get_by_id(1)
 print(customer)
 
 # Update first customer
@@ -41,8 +41,8 @@ updated_customer = {
     "girlfriend": True,
     "gpa": 3.9,
 }
-db.update_customer(1, updated_customer)
+db.update(1, updated_customer)
 
 # Delete first customer
 # TODO: fix delete customer
-# db.delete_customer(1)
+# db.delete(1)

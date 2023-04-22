@@ -6,25 +6,25 @@
     "email": "jane@example.com",
     "girlfriend": true,
     "gpa": 3.9,
-    "id": 1
+    "id": 11
   },
   {
-    "name": "Yerbolat Bek",
+    "name": "Bek Slambek",
     "address": "Akbulak District",
     "phone_number": "8-705-387-7382",
-    "email": "sbek228@gmail.com",
+    "email": "sbek22@gmail.com",
     "gpa": 3.8,
     "girlfriend": null,
-    "id": 2
+    "id": 12
   },
   {
-    "name": "Yerbolat Bek",
+    "name": "Ay Hey",
     "address": "Akbulak District",
     "phone_number": "8-705-387-7382",
-    "email": "sbek228@gmail.com",
+    "email": "sbek22@gmail.com",
     "gpa": 3.8,
     "girlfriend": null,
-    "id": 3
+    "id": 13
   },
   {
     "name": "Bek Slambek",
@@ -33,6 +33,24 @@
     "email": "sbek228@gmail.com",
     "gpa": 3.8,
     "girlfriend": null,
-    "id": 4
+    "id": 14
+  },
+  {
+    "name": "Bek Slambek",
+    "address": "Akbulak District",
+    "phone_number": "8-705-387-7382",
+    "email": "sbek228@gmail.com",
+    "gpa": 3.8,
+    "girlfriend": null,
+    "id": 15
+  },
+  {
+    "name": "Bek Slambek",
+    "address": "Akbulak District",
+    "phone_number": "8-705-387-7382",
+    "email": "sbek228@gmail.com",
+    "gpa": 3.8,
+    "girlfriend": null,
+    "id": 16
   }
 ]

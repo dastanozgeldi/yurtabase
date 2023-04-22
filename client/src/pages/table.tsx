@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 type Customer = {
   id: number;
@@ -10,12 +11,15 @@ type Customer = {
   gpa: number;
 };
 
-function App() {
+function Table() {
+  const { table } = useParams();
   const [customers, setCustomers] = useState<Customer[]>([]);
+
+  console.log(table);
 
   useEffect(() => {
     const fetchCustomers = async () => {
-      const res = await fetch("http://localhost:5000/get-all");
+      const res = await fetch(`http://localhost:5000/get/${table}`);
       const data = await res.json();
 
       console.log(data);
@@ -23,7 +27,7 @@ function App() {
     };
 
     fetchCustomers();
-  }, []);
+  }, [table]);
 
   return (
     <>
@@ -88,4 +92,4 @@ function App() {
   );
 }
 
-export default App;
+export default Table;

@@ -21,50 +21,56 @@ class Database:
             else:
                 return max([item["id"] for item in data]) + 1
 
-    def create_customer(self, data):
-        """Create a new customer in the customers table"""
-        customer_id = self.get_next_id(self.table)
-        data["id"] = customer_id
+    def create(self, data):
+        """Create a new item in the table"""
+        item_id = self.get_next_id(self.table)
+        data["id"] = item_id
         with open(self.get_table_path(self.table), "r+") as f:
-            customers = json.load(f)
-            customers.append(data)
+            items = json.load(f)
+            items.append(data)
             f.seek(0)
-            json.dump(customers, f, indent=2)
+            json.dump(items, f, indent=2)
 
-    def read_customer(self, customer_id):
-        """Read a customer from the customers table"""
+    def get_all(self):
+        """Get all items from the table"""
         with open(self.get_table_path(self.table), "r") as f:
-            customers = json.load(f)
-            for customer in customers:
-                if customer["id"] == customer_id:
-                    return customer
+            items = json.load(f)
+            return items
+
+    def get_by_id(self, item_id):
+        """Get an item by ID from the table"""
+        with open(self.get_table_path(self.table), "r") as f:
+            items = json.load(f)
+            for item in items:
+                if item["id"] == item_id:
+                    return item
             return None
 
-    def update_customer(self, customer_id, data):
-        """Update a customer in the customers table"""
+    def update(self, item_id, data):
+        """Update an item in the table"""
         # Check if keys of upcoming data match the schema
         if not set(data.keys()).issubset(set(self.schema.keys())):
             raise ValueError("Data does not match schema keys")
 
         with open(self.get_table_path(self.table), "r+") as f:
-            customers = json.load(f)
-            for i, customer in enumerate(customers):
-                if customer["id"] == customer_id:
-                    data["id"] = customer_id
-                    customers[i] = data
+            items = json.load(f)
+            for i, item in enumerate(items):
+                if item["id"] == item_id:
+                    data["id"] = item_id
+                    items[i] = data
                     f.seek(0)
-                    json.dump(customers, f, indent=2)
+                    json.dump(items, f, indent=2)
                     return True
             raise False
 
-    def delete_customer(self, customer_id):
-        """Delete a customer from the customers table"""
+    def delete(self, item_id):
+        """Delete an item from the table"""
         with open(self.get_table_path(self.table), "r+") as f:
-            customers = json.load(f)
-            for i, customer in enumerate(customers):
-                if customer["id"] == customer_id:
-                    del customers[i]
+            items = json.load(f)
+            for i, item in enumerate(items):
+                if item["id"] == item_id:
+                    del items[i]
                     f.seek(0)
-                    json.dump(customers, f, indent=2)
+                    json.dump(items, f, indent=2)
                     return True
             return False
