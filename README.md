@@ -17,4 +17,4 @@ npm install
 npm run dev
 ```
 
-By that, you should have a React.js + Vite client running on `http://localhost:3000` that is connected to Flask server through proxy.
+By that, you should have a React.js + Vite client running on `http://localhost:5173` that is connected to Flask server through proxy.
