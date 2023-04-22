@@ -25,5 +25,14 @@
     "gpa": 3.8,
     "girlfriend": null,
     "id": 3
+  },
+  {
+    "name": "Bek Slambek",
+    "address": "Akbulak District",
+    "phone_number": "8-705-387-7382",
+    "email": "sbek228@gmail.com",
+    "gpa": 3.8,
+    "girlfriend": null,
+    "id": 4
   }
 ]
