@@ -14,7 +14,7 @@
     "phone_number": "8-705-387-7382",
     "email": "sbek22@gmail.com",
     "gpa": 3.8,
-    "girlfriend": null,
+    "girlfriend": false,
     "id": 12
   },
   {
@@ -23,7 +23,7 @@
     "phone_number": "8-705-387-7382",
     "email": "sbek22@gmail.com",
     "gpa": 3.8,
-    "girlfriend": null,
+    "girlfriend": false,
     "id": 13
   },
   {
@@ -32,7 +32,7 @@
     "phone_number": "8-705-387-7382",
     "email": "sbek228@gmail.com",
     "gpa": 3.8,
-    "girlfriend": null,
+    "girlfriend": false,
     "id": 14
   },
   {
@@ -41,7 +41,7 @@
     "phone_number": "8-705-387-7382",
     "email": "sbek228@gmail.com",
     "gpa": 3.8,
-    "girlfriend": null,
+    "girlfriend": false,
     "id": 15
   },
   {
@@ -50,7 +50,7 @@
     "phone_number": "8-705-387-7382",
     "email": "sbek228@gmail.com",
     "gpa": 3.8,
-    "girlfriend": null,
+    "girlfriend": false,
     "id": 16
   }
 ]

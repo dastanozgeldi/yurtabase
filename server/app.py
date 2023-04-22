@@ -9,18 +9,6 @@ CORS(app)
 path = Path(__file__).parent / "data"
 
 
-# TODO: make table schemas dynamic
-CUSTOMERS_SCHEMA = {
-    "id": int,
-    "name": str,
-    "address": str,
-    "phone_number": str,
-    "email": str,
-    "gpa": float,
-    "girlfriend": bool,
-}
-
-
 @app.get("/")
 def index():
     """Lists all databases"""
@@ -29,6 +17,9 @@ def index():
 
 @app.get("/get/<table>")
 def get_table(table):
-    db = Database("data", f"{table}.json", CUSTOMERS_SCHEMA)
+    db = Database(
+        "data",
+        f"{table}.json",
+    )
     customers = db.get_all()
     return jsonify(customers)

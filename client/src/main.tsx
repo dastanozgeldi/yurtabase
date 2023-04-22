@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/tables/:table",
+    path: "/tables/:tableId",
     element: <Table />,
   },
 ]);

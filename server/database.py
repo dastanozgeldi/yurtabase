@@ -3,10 +3,13 @@ import json
 
 
 class Database:
-    def __init__(self, database_dir, table, schema):
+    def __init__(
+        self,
+        database_dir,
+        table,
+    ):
         self.database_dir = database_dir
         self.table = table
-        self.schema = schema
 
     def get_table_path(self, table):
         """Get the path to a table"""
@@ -48,10 +51,6 @@ class Database:
 
     def update(self, item_id, data):
         """Update an item in the table"""
-        # Check if keys of upcoming data match the schema
-        if not set(data.keys()).issubset(set(self.schema.keys())):
-            raise ValueError("Data does not match schema keys")
-
         with open(self.get_table_path(self.table), "r+") as f:
             items = json.load(f)
             for i, item in enumerate(items):
