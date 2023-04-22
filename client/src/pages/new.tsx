@@ -10,7 +10,15 @@ export const NewTable = () => {
   return (
     <div className="h-screen flex">
       <form className="min-w-[48ch] max-w-[48ch] m-auto p-4 border border-gray-400 rounded-lg space-y-3">
-        <h1 className="text-[2rem] font-bold">New Table</h1>
+        <div className="flex items-center justify-between space-x-6">
+          <h1 className="text-[2rem] font-bold">New Table</h1>
+          <button
+            onClick={() => navigate("/")}
+            className="font-medium text-blue-500 hover:text-blue-600 focus:text-blue-700 duration-500"
+          >
+            &larr; Go Back
+          </button>
+        </div>
         <div>
           <label htmlFor="name">Table Name</label>
           <input
