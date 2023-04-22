@@ -24,7 +24,7 @@ new_customer = {
     "phone_number": "8-705-387-7382",
     "email": "sbek228@gmail.com",
     "gpa": 3.8,
-    "girlfriend": None,
+    "girlfriend": False,
 }
 db.create(new_customer)
 
