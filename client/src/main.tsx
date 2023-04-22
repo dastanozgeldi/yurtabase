@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Table from "./pages/table";
 import { NewTable } from "./pages/new";
+import { UpdateTable } from "./pages/update";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/new",
     element: <NewTable />,
+  },
+  {
+    path: "/update/:tableId",
+    element: <UpdateTable />,
   },
 ]);
 

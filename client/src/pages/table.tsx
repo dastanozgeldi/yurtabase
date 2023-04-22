@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { styles } from "../styles";
 
 function Table() {
@@ -8,14 +8,12 @@ function Table() {
   const [table, setTable] = useState<any[]>([]);
 
   const fields = Object.keys(table[0] || {});
-  console.log(fields);
 
   useEffect(() => {
     const fetchCustomers = async () => {
       const res = await fetch(`http://localhost:5000/get/${tableId}`);
       const data = await res.json();
 
-      console.log(data);
       setTable(data);
     };
 
@@ -33,6 +31,13 @@ function Table() {
           >
             &larr; Go Back
           </button>
+          <Link
+            className={styles.update}
+            to={`/update/${tableId}`}
+            state={{ tableId, table }}
+          >
+            ✨ Update
+          </Link>
           <button
             className={styles.delete}
             onClick={async () => {
@@ -61,7 +66,7 @@ function Table() {
       </div>
       <table className="min-w-full divide-y divide-gray-200 border-gray-200 border rounded-lg flex">
         {fields.map((field) => (
-          <div>
+          <div key={field}>
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase ">

@@ -34,6 +34,15 @@ def new_table():
     return {"message": "success"}
 
 
+@app.post("/update-table")
+def update_table():
+    data = request.json
+    with open(f'{BASE_DIR / data["name"]}.json', "w") as f:
+        f.write(data["code"])
+
+    return {"message": "success"}
+
+
 @app.delete("/delete-table/<table>")
 def delete_table(table):
     path = BASE_DIR / f"{table}.json"
